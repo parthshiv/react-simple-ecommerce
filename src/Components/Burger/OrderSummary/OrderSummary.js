@@ -18,8 +18,7 @@ const orderSummary = (props) => {
       <p>A Burger with the following ingredients:</p>
       <ul>{ingredients}</ul>
       <p>
-        <strong>Your Order Total: </strong>
-        {props.price}
+        <strong>Your Order Total: ${props.price}</strong>
       </p>
       <p>Continue to checkout?</p>
       <button
