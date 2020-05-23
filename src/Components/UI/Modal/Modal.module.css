@@ -1,6 +1,6 @@
 .Modal {
   position: fixed;
-  z-index: 500;
+  z-index: 300;
   background-color: #fff;
   width: 70%;
   border: 1px solid #ccc;
@@ -24,5 +24,11 @@
   .Modal {
     width: 500px;
     left: calc(50% - 250px);
+  }
+}
+
+@media (max-width: 780px) {
+  .Modal {
+    font-size: 18px;
   }
 }
