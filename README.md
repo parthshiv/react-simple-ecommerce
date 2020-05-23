@@ -9,3 +9,7 @@ Run the command 'npm install' after cloning this repo
 # Run the website in browser
 
 Run the command 'npm start', Enjoy the Shopping!!
+
+# Demo
+
+https://parthshiv.github.io/react-simple-ecommerce/
