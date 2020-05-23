@@ -1,26 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 import classes from "./Modal.module.css";
-import Aux from "../../../HOC/Auxilary";
+import Aux from "../../../HOC/Auxilary/Auxilary";
 import Backdrop from "../Backdrop/Backdrop";
 
-const modal = (props) => {
-  return (
-    <Aux>
-      <Backdrop show={props.isShow} clicked={props.clicked} />
-      <div
-        className={classes.Modal}
-        style={{
-          transform: props.isShow ? "translateY(0)" : "translateY(-100vh)",
-          opacity: props.isShow ? "1" : "0",
-        }}
-      >
-        <button className={classes.closeButton} onClick={props.clicked}>
-          X
-        </button>
-        {props.children}
-      </div>
-    </Aux>
-  );
-};
+class Modal extends Component {
+  // this will prevent the unnecessory re-rendering of ordersummary component because we only need to re-render the ordersummary component when modal is showned.
 
-export default modal;
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.isShow !== this.props.isShow;
+  }
+
+  // below will only called when Modal is showned
+  componentWillUpdate() {
+    //console.log("Modal will update"); // this will
+  }
+  render() {
+    return (
+      <Aux>
+        <Backdrop show={this.props.isShow} clicked={this.props.clicked} />
+        <div
+          className={classes.Modal}
+          style={{
+            transform: this.props.isShow
+              ? "translateY(0)"
+              : "translateY(-100vh)",
+            opacity: this.props.isShow ? "1" : "0",
+          }}
+        >
+          <button className={classes.closeButton} onClick={this.props.clicked}>
+            X
+          </button>
+          {this.props.children}
+        </div>
+      </Aux>
+    );
+  }
+}
+
+export default Modal;
