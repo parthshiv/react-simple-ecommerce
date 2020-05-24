@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-simple-ecommerce/static/css/main.df00e565.chunk.css",
-    "main.js": "/react-simple-ecommerce/static/js/main.6df5664e.chunk.js",
-    "main.js.map": "/react-simple-ecommerce/static/js/main.6df5664e.chunk.js.map",
+    "main.css": "/react-simple-ecommerce/static/css/main.a07e8ca3.chunk.css",
+    "main.js": "/react-simple-ecommerce/static/js/main.db501e40.chunk.js",
+    "main.js.map": "/react-simple-ecommerce/static/js/main.db501e40.chunk.js.map",
     "runtime-main.js": "/react-simple-ecommerce/static/js/runtime-main.a9df08c1.js",
     "runtime-main.js.map": "/react-simple-ecommerce/static/js/runtime-main.a9df08c1.js.map",
-    "static/js/2.ab920312.chunk.js": "/react-simple-ecommerce/static/js/2.ab920312.chunk.js",
-    "static/js/2.ab920312.chunk.js.map": "/react-simple-ecommerce/static/js/2.ab920312.chunk.js.map",
+    "static/js/2.1aa6ce19.chunk.js": "/react-simple-ecommerce/static/js/2.1aa6ce19.chunk.js",
+    "static/js/2.1aa6ce19.chunk.js.map": "/react-simple-ecommerce/static/js/2.1aa6ce19.chunk.js.map",
     "index.html": "/react-simple-ecommerce/index.html",
-    "precache-manifest.cf395240fc2317cde678600c4560ed8f.js": "/react-simple-ecommerce/precache-manifest.cf395240fc2317cde678600c4560ed8f.js",
+    "precache-manifest.fe0855abf197b55005f12f559a7f49c8.js": "/react-simple-ecommerce/precache-manifest.fe0855abf197b55005f12f559a7f49c8.js",
     "service-worker.js": "/react-simple-ecommerce/service-worker.js",
-    "static/css/main.df00e565.chunk.css.map": "/react-simple-ecommerce/static/css/main.df00e565.chunk.css.map",
-    "static/js/2.ab920312.chunk.js.LICENSE.txt": "/react-simple-ecommerce/static/js/2.ab920312.chunk.js.LICENSE.txt",
+    "static/css/main.a07e8ca3.chunk.css.map": "/react-simple-ecommerce/static/css/main.a07e8ca3.chunk.css.map",
+    "static/js/2.1aa6ce19.chunk.js.LICENSE.txt": "/react-simple-ecommerce/static/js/2.1aa6ce19.chunk.js.LICENSE.txt",
     "static/media/burger-logo.png": "/react-simple-ecommerce/static/media/burger-logo.b8503d26.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a9df08c1.js",
-    "static/js/2.ab920312.chunk.js",
-    "static/css/main.df00e565.chunk.css",
-    "static/js/main.6df5664e.chunk.js"
+    "static/js/2.1aa6ce19.chunk.js",
+    "static/css/main.a07e8ca3.chunk.css",
+    "static/js/main.db501e40.chunk.js"
   ]
 }
