@@ -7,13 +7,16 @@ class Modal extends Component {
   // this will prevent the unnecessory re-rendering of ordersummary component because we only need to re-render the ordersummary component when modal is showned.
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.isShow !== this.props.isShow;
+    return (
+      nextProps.isShow !== this.props.isShow ||
+      nextProps.children !== this.props.children
+    );
   }
 
   // below will only called when Modal is showned
-  componentWillUpdate() {
-    //console.log("Modal will update"); // this will
-  }
+  // componentWillUpdate() {
+  //   //console.log("Modal will update"); // this will
+  // }
   render() {
     return (
       <Aux>
