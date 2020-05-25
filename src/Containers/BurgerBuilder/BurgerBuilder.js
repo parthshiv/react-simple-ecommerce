@@ -6,6 +6,7 @@ import Modal from "../../Components/UI/Modal/Modal";
 import Spinner from "../../Components/UI/Spinner/Spinner";
 import OrderSummary from "../../Components/Burger/OrderSummary/OrderSummary";
 import axiosOrders from "../../axios-orders";
+import errorHandler from "../../HOC/ErrorHandler/ErrorHandler";
 
 const INGREDEIENTS_PRICES = {
   salad: 0.5,
@@ -16,12 +17,7 @@ const INGREDEIENTS_PRICES = {
 
 class BurgerBuilder extends Component {
   state = {
-    ingredients: {
-      salad: 0,
-      cheese: 0,
-      meat: 0,
-      bacon: 0,
-    },
+    ingredients: null,
     totalPrice: 0,
     isPurchasable: false,
     showModal: false,
@@ -30,7 +26,24 @@ class BurgerBuilder extends Component {
       Success: "",
       Failed: "",
     },
+    error: null,
   };
+
+  componentDidMount() {
+    axiosOrders
+      .get("/ingredients.json")
+      .then((response) => {
+        //console.log(response);
+        this.setState({
+          ingredients: response.data,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error: error,
+        });
+      });
+  }
 
   checkPurchasable(ingreds) {
     const SumOfIngreds = Object.keys(ingreds)
@@ -91,6 +104,7 @@ class BurgerBuilder extends Component {
   HideModalHandler = () => {
     this.setState({
       showModal: false,
+      orderMessages: { Success: "" },
     });
   };
 
@@ -117,24 +131,28 @@ class BurgerBuilder extends Component {
     axiosOrders
       .post("/orders.json", orderData) // in firebase, we need to pass .json extension. we don't need to pass table name, whatever you will pass before .json, it will create table with that name. So here i passed orders.json because i want to save in orders table.
       .then((response) => {
-        this.setState({
-          showSpinner: false,
-          orderMessages: {
-            Success: "Order Placed Successfully, Thank you!",
-            Failed: "",
-          },
-        });
+        if (response) {
+          this.setState({
+            showSpinner: false,
+            orderMessages: {
+              Success: "Order Placed Successfully, Thank you!",
+            },
+          });
+        } else {
+          this.setState({
+            showSpinner: false,
+            showModal: false,
+          });
+        }
       })
       .catch((error) => {
         this.setState({
           showSpinner: false,
-          orderMessages: {
-            Failed: "Something went wrong to place your order, Sorry!",
-            Success: "",
-          },
+          showModal: false,
         });
       });
   };
+
   render() {
     const disabledInfo = {
       ...this.state.ingredients,
@@ -144,39 +162,52 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0; // this will return boolean, true/false
     }
 
-    let orderSummary = (
-      <OrderSummary
-        ingredients={this.state.ingredients}
-        clickedCancel={this.HideModalHandler}
-        clickedContinue={this.continueCheckout}
-        price={this.state.totalPrice}
-      />
-    );
+    //else if (this.state.orderMessages.Failed !== "") {
+    //   orderSummary = this.state.orderMessages.Failed;
+    // }
+
+    let burger = <Spinner />;
+    let orderSummary = null;
+    if (this.state.ingredients) {
+      burger = (
+        <Aux>
+          <Burger ingredients={this.state.ingredients} />
+          <BuildControls
+            ingredientsAdd={this.addIngredientsHandler}
+            ingredientsRemove={this.removeIngredientsHandler}
+            price={this.state.totalPrice}
+            disabledParam={disabledInfo}
+            isPurchasable={this.state.isPurchasable}
+            showModal={this.showModalHandler}
+          />
+        </Aux>
+      );
+
+      orderSummary = (
+        <OrderSummary
+          ingredients={this.state.ingredients}
+          clickedCancel={this.HideModalHandler}
+          clickedContinue={this.continueCheckout}
+          price={this.state.totalPrice}
+        />
+      );
+    }
+
     if (this.state.showSpinner) {
       orderSummary = <Spinner />;
-    }
-    if (this.state.orderMessages.Success !== "") {
+    } else if (this.state.orderMessages.Success !== "") {
       orderSummary = this.state.orderMessages.Success;
-    } else if (this.state.orderMessages.Failed !== "") {
-      orderSummary = this.state.orderMessages.Failed;
     }
+
     return (
       <Aux>
         <Modal isShow={this.state.showModal} clicked={this.HideModalHandler}>
           {orderSummary}
         </Modal>
-        <Burger ingredients={this.state.ingredients} />
-        <BuildControls
-          ingredientsAdd={this.addIngredientsHandler}
-          ingredientsRemove={this.removeIngredientsHandler}
-          price={this.state.totalPrice}
-          disabledParam={disabledInfo}
-          isPurchasable={this.state.isPurchasable}
-          showModal={this.showModalHandler}
-        />
+        {burger}
       </Aux>
     );
   }
 }
 
-export default BurgerBuilder;
+export default errorHandler(BurgerBuilder, axiosOrders);
