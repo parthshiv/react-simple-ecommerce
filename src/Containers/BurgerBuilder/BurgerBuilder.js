@@ -110,7 +110,7 @@ class BurgerBuilder extends Component {
 
   continueCheckout = () => {
     //alert("Checkout continue!");
-    this.setState({ showSpinner: true });
+    /* this.setState({ showSpinner: true });
     const orderData = {
       ingredients: this.state.ingredients,
       price: this.state.totalPrice.toFixed(2),
@@ -123,9 +123,9 @@ class BurgerBuilder extends Component {
           state: "Gujarat",
           zipCode: "380013",
           country: "India",
-        },
-        deliveryMethod: "LocalShipping",
+        },       
       },
+       deliveryMethod: "LocalShipping",
     };
 
     axiosOrders
@@ -150,7 +150,29 @@ class BurgerBuilder extends Component {
           showSpinner: false,
           showModal: false,
         });
-      });
+      }); */
+    //console.log(this.props);
+
+    // pass data to checkout page in URL, like GET method for example
+    /* const queryParams = [];
+    for (let i in this.state.ingredients) {
+      queryParams.push(
+        encodeURIComponent(i) +
+          "=" +
+          encodeURIComponent(this.state.ingredients[i])
+      );
+    }
+    const queryString = queryParams.join("&");
+    this.props.history.push({
+      pathname: "/checkout",
+      search: "?" + queryString,
+    }); */
+
+    // pass data to checkout page hiddenly, like POST method for example
+    this.props.history.push("/checkout", {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice.toFixed(2),
+    });
   };
 
   render() {
