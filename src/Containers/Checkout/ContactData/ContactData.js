@@ -33,11 +33,8 @@ class ContactData extends Component {
   };
 
   OrderNowHandler = (event) => {
-    //console.log(this.state.customer);
     event.preventDefault();
-    // console.log(this.props.location.state.ingredients);
-    // console.log(this.props.location.state.totalPrice);
-    // console.log(this.state.customerData);
+
     this.setState({ showModal: true, showSpinner: true });
     const orderData = {
       ingredients: this.props.location.state.ingredients,
@@ -45,7 +42,6 @@ class ContactData extends Component {
       customer: this.state.customer,
       deliveryMethod: this.state.deliveryMethod,
     };
-    //console.log(orderData);
 
     axiosOrders
       .post("/orders.json", orderData)
@@ -81,7 +77,6 @@ class ContactData extends Component {
     this.setState({
       customer: updatedCustomerData,
     });
-    //console.log(this.state.customer);
   }
   render() {
     let spinnerData = null;
