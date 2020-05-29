@@ -1,20 +1,56 @@
 .ContactData {
   margin: 20px auto;
-  width: 80%;
+  width: 100%;
   text-align: center;
   box-shadow: 0 2px 3px #ccc;
   border: 1px solid #eee;
   padding: 10px;
   box-sizing: border-box;
 }
+
 .ContactData input,
 .ContactData select {
-  display: block;
+  display: inline-block;
   margin-top: 10px;
+  box-sizing: border-box;
+  width: 80%;
+  padding: 8px 4px;
+}
+.Label {
+  width: 16%;
+  font-size: 0.625em;
+  text-align: justify;
+  float: left;
+  margin-top: 14px;
+}
+.Fields {
+  width: 100%;
+  box-sizing: border-box;
+}
+.error {
+  color: #db2269;
+  font-size: 0.625em;
+  display: flex;
+  padding: 10px 0;
+  width: 100%;
+}
+.errorStar {
+  color: #db2269;
+  font-size: 0.625em;
+  width: 4%;
 }
 
 @media (min-width: 600px) {
   .ContactData {
     width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .Label {
+    width: 100%;
+    font-size: 0.625em;
+    text-align: center;
+    float: left;
+    margin: 10px 0;
   }
 }
