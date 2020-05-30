@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/react-simple-ecommerce/static/css/main.55633a98.chunk.css",
-    "main.js": "/react-simple-ecommerce/static/js/main.87b05454.chunk.js",
-    "main.js.map": "/react-simple-ecommerce/static/js/main.87b05454.chunk.js.map",
+    "main.js": "/react-simple-ecommerce/static/js/main.0b527797.chunk.js",
+    "main.js.map": "/react-simple-ecommerce/static/js/main.0b527797.chunk.js.map",
     "runtime-main.js": "/react-simple-ecommerce/static/js/runtime-main.a9df08c1.js",
     "runtime-main.js.map": "/react-simple-ecommerce/static/js/runtime-main.a9df08c1.js.map",
-    "static/js/2.5afd0af8.chunk.js": "/react-simple-ecommerce/static/js/2.5afd0af8.chunk.js",
-    "static/js/2.5afd0af8.chunk.js.map": "/react-simple-ecommerce/static/js/2.5afd0af8.chunk.js.map",
+    "static/js/2.0e49ab95.chunk.js": "/react-simple-ecommerce/static/js/2.0e49ab95.chunk.js",
+    "static/js/2.0e49ab95.chunk.js.map": "/react-simple-ecommerce/static/js/2.0e49ab95.chunk.js.map",
     "index.html": "/react-simple-ecommerce/index.html",
-    "precache-manifest.26040a89060f5a76029a821b54129ee0.js": "/react-simple-ecommerce/precache-manifest.26040a89060f5a76029a821b54129ee0.js",
+    "precache-manifest.3747bf915e12593530550115d08059b5.js": "/react-simple-ecommerce/precache-manifest.3747bf915e12593530550115d08059b5.js",
     "service-worker.js": "/react-simple-ecommerce/service-worker.js",
     "static/css/main.55633a98.chunk.css.map": "/react-simple-ecommerce/static/css/main.55633a98.chunk.css.map",
-    "static/js/2.5afd0af8.chunk.js.LICENSE.txt": "/react-simple-ecommerce/static/js/2.5afd0af8.chunk.js.LICENSE.txt",
+    "static/js/2.0e49ab95.chunk.js.LICENSE.txt": "/react-simple-ecommerce/static/js/2.0e49ab95.chunk.js.LICENSE.txt",
     "static/media/burger-logo.png": "/react-simple-ecommerce/static/media/burger-logo.b8503d26.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a9df08c1.js",
-    "static/js/2.5afd0af8.chunk.js",
+    "static/js/2.0e49ab95.chunk.js",
     "static/css/main.55633a98.chunk.css",
-    "static/js/main.87b05454.chunk.js"
+    "static/js/main.0b527797.chunk.js"
   ]
 }
