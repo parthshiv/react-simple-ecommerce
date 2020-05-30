@@ -3,12 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./store/reducer";
 import * as serviceWorker from "./serviceWorker";
 
+const store = createStore(reducer);
 ReactDOM.render(
-  <BrowserRouter basename="/react-simple-ecommerce">
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter basename="/react-simple-ecommerce">
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

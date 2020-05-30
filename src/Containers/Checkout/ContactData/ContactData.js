@@ -6,6 +6,8 @@ import Spinner from "../../../Components/UI/Spinner/Spinner";
 import Modal from "../../../Components/UI/Modal/Modal";
 import Aux from "../../../HOC/Auxilary/Auxilary";
 import axiosOrders from "../../../axios-orders";
+import { connect } from "react-redux";
+
 const validEmailRegex = RegExp(/[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]/gim);
 
 class ContactData extends Component {
@@ -16,8 +18,7 @@ class ContactData extends Component {
       caStreet: "",
       zip: "",
     },
-    ingredients: {},
-    totalPrice: 0,
+
     deliveryMethod: "LocalShipping",
     showModal: false,
     showSpinner: false,
@@ -48,8 +49,8 @@ class ContactData extends Component {
 
     this.setState({ showModal: true, showSpinner: true });
     const orderData = {
-      ingredients: this.props.location.state.ingredients,
-      price: this.props.location.state.totalPrice,
+      ingredients: this.props.ingreds,
+      price: this.props.totalPrice,
       customer: this.state.customer,
       deliveryMethod: this.state.deliveryMethod,
     };
@@ -265,5 +266,10 @@ class ContactData extends Component {
     );
   }
 }
-
-export default ContactData;
+const mapStateToProps = (state) => {
+  return {
+    ingreds: state.ingredients,
+    totalPrice: state.totalPrice,
+  };
+};
+export default connect(mapStateToProps)(ContactData);
